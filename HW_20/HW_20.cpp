@@ -1,62 +1,56 @@
+п»ї// Student
 //#include "Student.h"
 //#include <iostream>
 //#include <clocale>
 //using namespace std;
 //
 //int main() {
-//    setlocale(LC_ALL, "");
+//    setlocale(LC_ALL, ""); 
 //
 //    Student s1;
-//    cout << "=== s1 (default) ===\n";
+//    cout << "Default student:\n";
 //    s1.printInfo();
 //
-//    Student s2("Іваненко Іван Іванович", 4.5, "Київський Університет", 312);
-//    cout << "=== s2 (with params) ===\n";
+//    Student s2("Р†РІР°РЅ РџРµС‚СЂРµРЅРєРѕ", 4.5, "РљРџР†", 201);
+//    cout << "\nCustom student:\n";
 //    s2.printInfo();
 //
-//    cout << "Ім’я студента s2: " << s2.getFullName() << "\n";
-//    cout << "Середній бал студента s2: " << s2.getAverage() << "\n";
-//    cout << "Навчальний заклад s2: " << s2.getInstitution() << "\n";
-//    cout << "Номер групи s2: " << s2.getGroup() << "\n\n";
-//
-//    s2.setAverage(4.8);
-//    s2.setGroup(315);
-//    cout << "=== s2 after changes ===\n";
-//    s2.printInfo();
+//    cout << "\nAccessors demo:\n";
+//    cout << "Name: " << s2.getFullName() << "\n";
+//    cout << "Grade: " << s2.getAverageGrade() << "\n";
+//    cout << "School: " << s2.getSchoolName() << "\n";
+//    cout << "Group: " << s2.getGroupNumber() << "\n";
 //
 //    return 0;
 //}
 
-#include "Airplane.h"
+// Airplane
+#include "Plane.h"
 #include <iostream>
-#include <clocale>
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "");
-    Airplane a1;
-    cout << "=== a1 ===\n";
-    a1.printInfo();
 
-    Airplane a2("PS123", "Київ", "Лондон", "Boeing 777", 300, 150);
-    cout << "=== a2 ===\n";
-    a2.printInfo();
+    Plane p1;
+    cout << "Default plane:\n";
+    p1.printInfo();
 
-    cout << "Спроба продати 100 квитків на рейс " << a2.getFlightNumber() << ": ";
-    cout << (a2.sellTickets(100) ? "успішно.\n" : "немає вільних місць або помилка.\n");
-    a2.printInfo();
+    Plane p2("PS123", "Kyiv", "London", "Boeing 737", 180, 10);
+    cout << "\nCustom plane:\n";
+    p2.printInfo();
 
-    cout << "Спроба продати 100 квитків повторно: ";
-    cout << (a2.sellTickets(100) ? "успішно.\n" : "неможливо, замало місць.\n");
-    a2.printInfo();
+    cout << "\nSelling 5 tickets...\n";
+    if (p2.sellTickets(5)) cout << "Sold вњ“\n";
+    p2.printInfo();
 
-    cout << "Повернення 50 квитків: ";
-    cout << (a2.returnTickets(50) ? "здійснено.\n" : "помилка у кількості.\n");
-    a2.printInfo();
+    cout << "\nReturning 3 tickets...\n";
+    if (p2.returnTickets(3)) cout << "Returned вњ“\n";
+    p2.printInfo();
 
-    cout << "Повернення 500 квитків: ";
-    cout << (a2.returnTickets(500) ? "здійснено.\n" : "помилка: таких квитків не було продано.\n");
-    a2.printInfo();
+    cout << "\nTry sell 200...\n";  p2.sellTickets(200);
+    cout << "\nTry return 20...\n"; p2.returnTickets(20);
 
     return 0;
 }
+
+

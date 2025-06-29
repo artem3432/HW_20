@@ -3,46 +3,24 @@
 using namespace std;
 
 Student::Student()
-    : fullName("Unknown")
-    , averageGrade(0.0)
-    , institution("Unknown")
-    , groupNumber(0)
-{
+    : fullName_("Unknown"), averageGrade_(0.0),
+    schoolName_("Unknown"), groupNumber_(0) {
 }
 
-Student::Student(const string& name,
-    double avg,
-    const string& inst,
-    int group)
-    : fullName(name)
-    , averageGrade(avg)
-    , institution(inst)
-    , groupNumber(group)
-{
+Student::Student(const string& fullName, double averageGrade,
+    const string& schoolName, int groupNumber)
+    : fullName_(fullName), averageGrade_(averageGrade),
+    schoolName_(schoolName), groupNumber_(groupNumber) {
 }
 
-Student::Student(const Student& other)
-    : fullName(other.fullName)
-    , averageGrade(other.averageGrade)
-    , institution(other.institution)
-    , groupNumber(other.groupNumber)
-{
-}
+const string& Student::getFullName() const { return fullName_; }
+double        Student::getAverageGrade() const { return averageGrade_; }
+const string& Student::getSchoolName() const { return schoolName_; }
+int           Student::getGroupNumber() const { return groupNumber_; }
 
 void Student::printInfo() const {
-    cout << "Студент: " << fullName
-        << "\nСередній бал: " << averageGrade
-        << "\nЗаклад: " << institution
-        << "\nГрупа: " << groupNumber
-        << "\n\n";
+    cout << "Student: " << fullName_ << "\n"
+        << "  Average: " << averageGrade_ << "\n"
+        << "  School: " << schoolName_ << "\n"
+        << "  Group#: " << groupNumber_ << "\n";
 }
-
-const string& Student::getFullName()   const { return fullName; }
-double        Student::getAverage()    const { return averageGrade; }
-const string& Student::getInstitution() const { return institution; }
-int           Student::getGroup()       const { return groupNumber; }
-
-void Student::setFullName(const string& name) { fullName = name; }
-void Student::setAverage(double avg) { averageGrade = avg; }
-void Student::setInstitution(const string& inst) { institution = inst; }
-void Student::setGroup(int group) { groupNumber = group; }
